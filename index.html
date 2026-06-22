@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ヒントページ</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .section {
+      background: white;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background: #0078d4;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005ea2;
+    }
+    .hint {
+      display: none;
+      margin: 5px 0 10px 0;
+      padding: 10px;
+      background: #e8f0fe;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>謎解きヒント</h1>
+
+  <!-- 初級編 -->
+  <div class="section">
+    <h2>初級編ヒント</h2>
+    <div id="beginner"></div>
+
+    <button onclick="toggleHint('b-final')">最終問題</button>
+    <div id="b-final" class="hint">【初級最終】「マークの名前」が何を指すのかは、遊び方の所に書いてあります。すべてのマークを探して指示に従いましょう。</div>
+  </div>
+
+  <!-- 上級編 -->
+  <div class="section">
+    <h2>上級編ヒント</h2>
+    <div id="advanced"></div>
+
+    <button onclick="toggleHint('a-final')">最終問題</button>
+    <div id="a-final" class="hint">【上級最終】工事中</div>
+  </div>
+
+  <script>
+    function toggleHint(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // ====== ここを書き換えるだけ（ヒント本体） ======
+
+    const beginnerHints = [
+      "金魚の目線　と書いてある問題：パネルをよく見てみましょう。金魚がどこかにいるはずです。",
+      "黒い図形が6個書いてある問題：パネルの黒い図形と組み合わせて食べ物を作りましょう。揚げ物が３つとデザートが作れます。",
+      "数字のパネルをがある問題：左下の３と書いてある線の隣からどの数字が入るのかを考えましょう。足して３になる数字の組み合わせは１通りだけです。,
+      "うえ かき と書いてある問題：ここにヒント",
+      "円の中に文字がある問題：ここにヒント",
+      "迷路がある問題：同じ色の◇を踏むとワープできるようです。まず赤い◇を通って別の所にある赤い◇へワープしましょう。"
+    ];
+
+    const advancedHints = [
+      "Q1：工事中",
+      "Q2：工事中",
+      "Q3：工事中",
+      "Q4：工事中",
+      "Q5：工事中",
+      "Q6：工事中"
+    ];
+
+    // ==============================================
+
+    function createQuestions(containerId, prefix, hints) {
+      const container = document.getElementById(containerId);
+
+      for (let i = 1; i <= hints.length; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = 'Q' + i;
+        btn.onclick = () => toggleHint(prefix + i);
+
+        const hint = document.createElement('div');
+        hint.id = prefix + i;
+        hint.className = 'hint';
+        hint.textContent = hints[i - 1];
+
+        container.appendChild(btn);
+        container.appendChild(hint);
+      }
+    }
+
+    createQuestions('beginner', 'b', beginnerHints);
+    createQuestions('advanced', 'a', advancedHints);
+  </script>
+
+</body>
+</html>
