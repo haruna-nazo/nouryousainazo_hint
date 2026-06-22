@@ -73,7 +73,7 @@
     const beginnerHints = [
       "金魚の目線　と書いてある問題：パネルをよく見てみましょう。金魚がどこかにいるはずです。",
       "黒い図形が6個書いてある問題：パネルの黒い図形と組み合わせて食べ物を作りましょう。揚げ物が３つとデザートが作れます。",
-      "数字のパネルをがある問題：左下の３と書いてある線の隣からどの数字が入るのかを考えましょう。足して３になる数字の組み合わせは１通りだけです。",
+      "数字のパネルをがある問題：左下の３と書いてある線の隣からどの数字が入るのかを考えましょう。足して３になる数字の組み合わせは１通りだけです。,
       "うえ かき と書いてある問題：ここにヒント",
       "円の中に文字がある問題：ここにヒント",
       "迷路がある問題：同じ色の◇を踏むとワープできるようです。まず赤い◇を通って別の所にある赤い◇へワープしましょう。"
@@ -90,12 +90,12 @@
 
     // ==============================================
 
-    function createQuestions(containerId, prefix, hints) {
+    function createQuestions(containerId, prefix, hints, titles) {
       const container = document.getElementById(containerId);
 
       for (let i = 1; i <= hints.length; i++) {
         const btn = document.createElement('button');
-        btn.textContent = 'Q' + i;
+        btn.textContent = titles[i - 1];
         btn.onclick = () => toggleHint(prefix + i);
 
         const hint = document.createElement('div');
@@ -108,7 +108,7 @@
       }
     }
 
-    createQuestions('beginner', 'b', beginnerHints);
+    createQuestions('beginner', 'b', beginnerHints, beginnerTitles);;
     createQuestions('advanced', 'a', advancedHints);
   </script>
 
