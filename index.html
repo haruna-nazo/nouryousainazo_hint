@@ -19,11 +19,11 @@
     button {
       display: block;
       width: 100%;
-      margin: 5px 0;
-      padding: 10px;
-      font-size: 16px;
+      margin: 8px 0;
+      padding: 18px; /* ← 高さアップ */
+      font-size: 18px; /* ← 大きく */
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       background: #0078d4;
       color: white;
       cursor: pointer;
@@ -50,7 +50,9 @@
     <div id="beginner"></div>
 
     <button onclick="toggleHint('b-final')">最終問題</button>
-    <div id="b-final" class="hint">【初級最終】「マークの名前」が何を指すのかは、遊び方の所に書いてあります。すべてのマークを探して指示に従いましょう。</div>
+    <div id="b-final" class="hint">
+      【初級最終】「マークの名前」が何を指すのかは、遊び方の所に書いてあります。すべてのマークを探して指示に従いましょう。
+    </div>
   </div>
 
   <!-- 上級編 -->
@@ -68,37 +70,47 @@
       el.style.display = el.style.display === 'block' ? 'none' : 'block';
     }
 
-    // ====== ここを書き換えるだけ（ヒント本体） ======
-
+    // ===== 初級タイトル =====
     const beginnerTitles = [
-  "金魚の目線の問題",
-  "黒い図形の問題",
-  "数字のパネルの問題",
-  "うえ かき の問題",
-  "円の中の文字の問題",
-  "迷路の問題"
-];
+      "金魚の目線の問題",
+      "黒い図形の問題",
+      "数字のパネルの問題",
+      "うえ かき の問題",
+      "円の中の文字の問題",
+      "迷路の問題"
+    ];
 
+    // ===== 初級ヒント（←ヒント1・2に分割）=====
     const beginnerHints = [
-      "パネルをよく見てみましょう。金魚がどこかにいるはずです。",
-      "パネルの黒い図形と組み合わせて食べ物を作りましょう。３つの揚げ物とデザートが作れます。",
-      "左下の３と書いてある線の隣からどの数字が入るのかを考えましょう。足して３になる数字の組み合わせは１通りだけです。",
-      "色付きにマスにそれぞれ「うえ」と「かき」が入るようです。その間のマスには「お」が入ります。",
-      "円形の中に12個の数字があるものが何かを考えてみましょう。",
-      "迷路がある問題：同じ色の◇を踏むとワープできるようです。まず赤い◇を通って迷路の中にある別の所にある赤い◇へワープしましょう。"
+      ["パネルをよく見てみましょう。", "金魚がどこかにいるはずです。"],
+      ["黒い図形に注目", "食べ物を構成できます。3つの揚げ物＋デザート"],
+      ["3に注目", "足して3になる組み合わせは1つだけ"],
+      ["色付きマスに注目", "「うえ」「かき」の間に「お」が入る"],
+      ["12個並んだ数字に注目", "円形のヒントは身近なものです"],
+      ["ワープできます", "同じ色の◇で移動できます"]
     ];
 
+    // ===== 上級タイトル =====
+    const advancedTitles = [
+      "上級Q1",
+      "上級Q2",
+      "上級Q3",
+      "上級Q4",
+      "上級Q5",
+      "上級Q6"
+    ];
+
+    // ===== 上級ヒント =====
     const advancedHints = [
-      "Q1：工事中",
-      "Q2：工事中",
-      "Q3：工事中",
-      "Q4：工事中",
-      "Q5：工事中",
-      "Q6：工事中"
+      ["工事中", "工事中"],
+      ["工事中", "工事中"],
+      ["工事中", "工事中"],
+      ["工事中", "工事中"],
+      ["工事中", "工事中"],
+      ["工事中", "工事中"]
     ];
 
-    // ==============================================
-
+    // ===== 共通処理 =====
     function createQuestions(containerId, prefix, hints, titles) {
       const container = document.getElementById(containerId);
 
@@ -110,15 +122,19 @@
         const hint = document.createElement('div');
         hint.id = prefix + i;
         hint.className = 'hint';
-        hint.textContent = hints[i - 1];
+
+        // ▼ ヒント1+ヒント2表示
+        hint.innerHTML =
+          "<b>ヒント1：</b>" + hints[i - 1][0] + "<br>" +
+          "<b>ヒント2：</b>" + hints[i - 1][1];
 
         container.appendChild(btn);
         container.appendChild(hint);
       }
     }
 
-    createQuestions('beginner', 'b', beginnerHints, beginnerTitles);;
-    createQuestions('advanced', 'a', advancedHints);
+    createQuestions('beginner', 'b', beginnerHints, beginnerTitles);
+    createQuestions('advanced', 'a', advancedHints, advancedTitles);
   </script>
 
 </body>
