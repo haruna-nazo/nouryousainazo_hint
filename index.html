@@ -124,10 +124,15 @@
         hint.className = 'hint';
 
         // ▼ ヒント1+ヒント2表示
-        hint.innerHTML =
-          "<b>ヒント1：</b>" + hints[i - 1][0] + "<br>" +
-          "<b>ヒント2：</b>" + hints[i - 1][1];
-
+        
+hint.innerHTML =
+  "<b>ヒント1：</b>" + hints[i - 1][0] +
+  "<br><br>" +
+  "<button onclick=\"document.getElementById('" + prefix + "h2_" + i + "').style.display='block'\">さらにヒントを見る</button>" +
+  "<div id='" + prefix + "h2_" + i + "' style='display:none; margin-top:8px;'>" +
+  "<b>ヒント2：</b>" + hints[i - 1][1] +
+  "</div>";
+        
         container.appendChild(btn);
         container.appendChild(hint);
       }
