@@ -44,16 +44,47 @@
 
   <h1>謎解きヒント</h1>
 
-  <!-- 初級編 -->
-  <div class="section">
-    <h2>初級編ヒント</h2>
-    <div id="beginner"></div>
+<!-- 初級編 -->
+<div class="section">
+  <h3>初級編ヒント</h3>
+  <div id="beginner"></div>
 
-    <button onclick="toggleHint('b-final')">最終問題</button>
-    <div id="b-final" class="hint">
-      【初級最終】「マークの名前」が何を指すのかは、遊び方の所に書いてあります。すべてのマークを探して指示に従いましょう。
+  <button onclick="toggleHint('b-final')">最終問題</button>
+
+  <div id="b-final" class="hint">
+    <b>ヒント1：</b>
+    6問の解答欄のマスにはアルファベットが書いてありました。同じアルファベットののマスを最終問題の解答欄に埋めていきましょう。最終問題を解くための指示が出てきます。
+    <br><br>
+
+    <button onclick="
+      document.getElementById('b-final2').style.display='block';
+      this.style.display='none';
+    ">
+      さらにヒントを見る
+    </button>
+
+    <div id="b-final2" style="display:none; margin-top:8px;">
+      <b>ヒント2：</b>
+      問題にはパネルの右下に書いてあるイラストが「マーク」で、そのイラストが指す名前を並べる必要があるようです。<br>その順で並べると一番最初に来るのは「枯れ葉(かれは)」です。
+      <br><br>
+
+      <button onclick="
+        document.getElementById('b-final3').style.display='block';
+        this.style.display='none';
+      ">
+        さらにヒントを見る
+      </button>
     </div>
+
+    <div id="b-final3" style="display:none; margin-top:8px;">
+      <b>ヒント3：</b>
+      ６つの単語を指示通りに並べましたが、不正解のような単語が出てきてしまいました。<br>通路の壁にはパネルは６つだけありますが、あなたは今までにもう1枚、パネルを見ているはずです。<br>それは会場内にありますが、手元の資料にも同じものがあります。(ここから先のヒントはスタッフへ)
+    </div>
+
   </div>
+</div>
+
+
 
   <!-- 上級編 -->
   <div class="section">
@@ -61,8 +92,45 @@
     <div id="advanced"></div>
 
     <button onclick="toggleHint('a-final')">最終問題</button>
-    <div id="a-final" class="hint">【上級最終】工事中</div>
+<div id="a-final" class="hint">
+
+  <b>ヒント1：</b>今まで出てきた6問の謎の答えで埋めましょう。<br>3文字の答えは2つしかないため、右上に何が入るのかを考えると分かりやすいかもしれません。<br><br>
+
+  <button onclick="document.getElementById('a-h2').style.display='block'">
+    次のヒントを見る
+  </button>
+
+  <div id="a-h2" style="display:none; margin-top:8px;">
+    <b>ヒント2：</b>出てきた指示は「はなび と きんぎょ の交わる場所を探しましょう。」との指示が出てきました。<br>はなび と きんぎょ を漢字にして地図を見ると探すべき場所が分かるかもしれません。<br><br>
+
+    <button onclick="document.getElementById('a-h3').style.display='block'">
+      次のヒントを見る
+    </button>
   </div>
+
+  <div id="a-h3" style="display:none; margin-top:8px;">
+    <b>ヒント3：</b>探すと最終問題が出てきました。「きすう を無視するしましょう」という指示があったため、2,4の指示は無視しましょう。<br><br>
+
+    <button onclick="document.getElementById('a-h4').style.display='block'">
+      次のヒントを見る
+    </button>
+  </div>
+
+  <div id="a-h4" style="display:none; margin-top:8px;">
+    <b>ヒント4：</b>太陽の上半分と下半分が表紙やメモにあります。ちょうど中間地点を谷折りすると太陽を作れます。(画像必要)<br><br>
+
+    <button onclick="document.getElementById('a-h5').style.display='block'">
+      次のヒントを見る
+    </button>
+  </div>
+
+  <div id="a-h5" style="display:none; margin-top:8px;">
+    <b>ヒント5：</b>引き出しの中にも◇があります。最後の答えは8文字の言葉です。(ここから先は自分の力で解こう。)
+  </div>
+
+</div>
+
+
 
   <script>
     function toggleHint(id) {
@@ -102,12 +170,12 @@
 
     // ===== 上級ヒント =====
     const advancedHints = [
-      ["ヒントはありません。この謎はそこまで難しくないからです。", "ここから先は自分の力で考えて解こう。"],
-      ["会場の料理に似たものあるんじゃないでしょうか？(問題制作時はどんな料理が出てくるのか知らされていません)。", "ここから先は自分の力で考えて解こう。"],
-      ["盤面には11が多いですね。ちなみに確定できる箇所は一番上のマスです。", "ここから先は自分の力で考えて解こう。"],
-      ["ヒントはありません。料理でも食べてお考え下さい。", "ここから先は自分の力で考えて解こう。"],
-      ["ヒントはありません。ゴミ拾いでもしてお考え下さい。", "ここから先は自分の力で考えて解こう。"],
-      ["ヒントはありません。句読点の数でも数えてお考え下さい。", "ここから先は自分の力で考えて解こう。"]
+      ["赤い枠は「すいむ」から「きんむ」に、青い枠は「かせき」から「きそく」に変化する法則があるようです。", "赤い枠は曜日ではない別の法則があるようです。また青い枠は50音表を思い浮かべるといいかもしれません。最後に残った紙が変化した後の言葉が答えになります。"],
+      ["分かる食べ物から作って候補を減らしましょう。", "「から」は「しめ」につながり、「かす」は「たー」につながります。"],
+      ["丸の中の数字に11が多く使われているのがポイントです。", "この条件で合計で11になる組み合わせは全部で４通りあります。合計が11になる組み合わせに入れない数字は何でしょうか。"],
+      ["マスに当てはめると、？？うしおすし？？？？…　となります。", "全部で5つあるものの名前が並んでいます。３文字目の「う」と４文字目の「し」の間を区切ると分かりやすいかもしれません。"],
+      ["この枠線の中とパネルの情報だけでは解けないようです。", "解くのに必要だった情報は元々テープ貼ってあったんでしょうか。どうやら落ちてしまっているようです。"],
+      ["同じ色の◇にジャンプするルールのようです。", "ピンク色の◇が枠線の外にあるようです。"]
     ];
 
     // ===== 共通処理 =====
