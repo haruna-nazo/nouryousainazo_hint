@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初級編ヒント</title>
+
+  <style>
+body {
+  font-family: sans-serif;
+  padding: 12px;
+  background: #f5f5f5;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.section {
+  background: white;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 18px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #0078d4;
+  color: white;
+  cursor: pointer;
+}
+
+.hint {
+  display: none;
+  margin: 8px 0;
+  padding: 12px;
+  background: #e8f0fe;
+  border-radius: 8px;
+  word-break: break-word;
+}
+
+h1 {
+  font-size: 28px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 22px;
+}
+  </style>
+</head>
+
+<body>
+
+<h1>謎解きヒント（初級編）</h1>
+
+<div class="section">
+  <h3>初級編ヒント</h3>
+  <div id="beginner"></div>
+
+  <button onclick="toggleHint('b-final')">最終問題</button>
+
+  <div id="b-final" class="hint">
+
+    <b>ヒント1：</b>
+    6問の解答欄のマスには、左上にアルファベットが書いてありました。同じアルファベットのマスを最終問題の解答欄に埋めていきましょう。<br>
+    すると最終問題を解くための指示が出てきます。<br>
+    ※指示が分からない場合は謎解き受付のスタッフにお声がけください。
+    <br><br>
+
+    <button onclick="
+      document.getElementById('b-final2').style.display='block';
+      this.style.display='none';
+    ">
+      さらにヒントを見る
+    </button>
+
+    <div id="b-final2" style="display:none; margin-top:8px;">
+      <b>ヒント2：</b>
+      現れた指示を一つずつ行っていきましょう。<br>
+      遊び方にも説明がある通り、パネルの右下に書いてあるイラストが「マーク」で、そのイラストが指す名前を並べる必要があるようです。<br>
+      その順で並べると一番最初に来るのは「枯れ葉(かれは)」です。<br>
+      ※意味の無い単語になってしまったら謎解き受付のスタッフにお声がけください。
+      <br><br>
+
+      <button onclick="
+        document.getElementById('b-final3').style.display='block';
+        this.style.display='none';
+      ">
+        さらにヒントを見る
+      </button>
+    </div>
+
+    <div id="b-final3" style="display:none; margin-top:8px;">
+      <b>ヒント3：</b>
+      ６つの単語を指示通りに並べましたが、不正解のような単語が出てきてしまいました。<br>
+      通路の壁にはパネルは６つだけありますが、あなたは今までにもう1枚、パネルを見ているはずです。<br>
+      それは会場内にありますが、手元の資料にも同じものがあります。<br>
+      ※ここから先のヒントは謎解き受付のスタッフにお声がけください。
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleHint(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+
+const beginnerTitles = [
+  "弓矢の先を読む問題",
+  "白い図形がある問題",
+  "数字のパネルの問題",
+  "うえ かき と書いてある問題",
+  "円の中に文字が書いてある問題",
+  "迷路の問題"
+];
+
+const beginnerHints = [
+  [
+    "パネルをよく見てみましょう。<br>左の方に弓矢があるはずです。",
+    "弓矢は右の方を指しています。<br>その先には４つの文字があります。"
+  ],
+  [
+    "図形を組み合わせると食べ物が出来ます。<br>２つの揚げ物と、２つの甘い物が出来ます。",
+    "例えばパネルにある「から」と、手元の紙にある「あげ」を組み合わせると「からあげ」ができます。<br>あと３つ見つけましょう。"
+  ],
+  [
+    "左下に注目しましょう。<br>合計が3になる数字の組み合わせは１つしかありません。",
+    "使えるパネルの内、１と２のパネルを足すと３になります。<br>同じ数字は使えないルールも忘れないようにして、他のマスも埋めましょう。"
+  ],
+  [
+    "色がついているマスにはそれぞれ「うえ」「かき」が入るようです。<br>そのままマス目に入れると「？？うえ？かき？？？？…」となります。",
+    "もう１文字ヒント。<br>「？？うえおかき？？？？…」全部で46個あるこの並びは、誰もが知っているアレです。"
+  ],
+  [
+    "円形に12個並んでいるもの。これと似たものが身近にあります。",
+    "一番上が12の場所です。"
+  ],
+  [
+    "同じ色の◇にワープする事ができるようです。<br>このルールを使って迷路を進みましょう。",
+    "まずは赤い◇から別の赤い◇へワープしましょう。<br>そうしたら次に通れる◇を探しましょう。"
+  ]
+];
+
+function createQuestions(containerId, prefix, hints, titles) {
+  const container = document.getElementById(containerId);
+
+  for (let i = 1; i <= hints.length; i++) {
+
+    const btn = document.createElement('button');
+    btn.textContent = titles[i - 1];
+    btn.onclick = () => toggleHint(prefix + i);
+
+    const hint = document.createElement('div');
+    hint.id = prefix + i;
+    hint.className = 'hint';
+
+    hint.innerHTML =
+      "<b>ヒント1：</b>" + hints[i - 1][0] +
+      "<br><br>" +
+      "<button onclick=\"document.getElementById('" + prefix + "h2_" + i + "').style.display='block'; this.style.display='none';\">さらにヒントを見る</button>" +
+      "<div id='" + prefix + "h2_" + i + "' style='display:none; margin-top:8px;'>" +
+      "<b>ヒント2：</b>" + hints[i - 1][1] +
+      "</div>";
+
+    container.appendChild(btn);
+    container.appendChild(hint);
+  }
+}
+
+createQuestions('beginner', 'b', beginnerHints, beginnerTitles);
+</script>
+
+</body>
+</html>
