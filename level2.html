@@ -1,9 +1,43 @@
-//【※この内容はおまけで、初級編・上級編とは全く関係なく景品などもありません。
-//初級編・上級編をクリアできていない方は、先にそちらを進める事を強くお勧めします。】
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>おまけ問題</title>
+<script>
+function checkAnswer() {
+    const answer = document.getElementById("answer").value.trim();
 
-//会場内に１つだけあるパネルを見て解け。１問だけ「ちゅういじこう」
+    const correctAnswers = [
+        "こうじちゅう",
+        "工事中",
+        "公示中",
+        "コウジチュウ"
+    ];
 
-//→正誤判定
+    if (correctAnswers.includes(answer)) {
+        document.body.innerHTML = "<h1>正解</h1>";
+    } else {
+        alert("不正解");
+    }
+}
+</script>
+</head>
+<body>
 
-//隠された中級編の謎を解き明かした。
-//【この内容は制作者とあなたしか知りません。受付スタッフのうちハッピを着ていない人に見せてください。景品などは用意しておりませんが泣いて喜びます。】
+<p>
+※この内容はおまけで、初級編・上級編とは全く関係なく景品などもありません。<br>
+初級編・上級編をクリアできていない方は、先にそちらを進める事を強くお勧めします。
+</p>
+
+<br>
+
+<p>
+会場内に１つだけあるパネルは「④⑤⑥い③①②」<br>
+①②③④⑤⑥＝？
+</p>
+
+<input type="text" id="answer" placeholder="答えを入力">
+<button onclick="checkAnswer()">判定</button>
+
+</body>
+</html>
