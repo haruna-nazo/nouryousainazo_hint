@@ -15,7 +15,7 @@ function checkAnswer() {
     ];
 
     if (correctAnswers.includes(answer)) {
-        document.body.innerHTML = "<h1>正解</h1>";
+        window.location.href = "bonus_clear.html";
     } else {
         alert("不正解");
     }
