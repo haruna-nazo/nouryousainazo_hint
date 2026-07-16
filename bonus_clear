@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中級編クリア</title>
+
+<style>
+body {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 40px 20px;
+    background: #f5f5f5;
+}
+
+h1 {
+    font-size: 42px;
+    color: #d32f2f;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 22px;
+    line-height: 1.8;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎉 中級編クリア 🎉</h1>
+
+<p>
+あなたは隠された中級編にたどり着き、正解した。
+</p>
+
+</body>
+</html>
