@@ -4,7 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>上級編ヒント</title>
+  
 
+<script>
+function checkAnswer() {
+    const answer = document.getElementById("answer").value.trim();
+
+    const correctAnswers = [
+        "しねま","シネマ","cinema","Cinema","CINEMA",
+        "ひょうか","ヒョウカ","評価","氷菓",
+        "鼻歌","はなうた","ハナウタ","鼻唄","花歌","花唄",
+        "ほうき","ホウキ","放棄","法規","蜂起","箒",
+        "無差別","ムサベツ","むさべつ",
+        "かぎあな","カギアナ","鍵穴"];
+
+    if (correctAnswers.includes(answer)) {
+        document.getElementById("result").innerHTML =
+            "〇 正解です！";
+    } else {
+        document.getElementById("result").innerHTML =
+            "× 不正解です…。";
+    }
+}
+</script>
+
+  
 <style>
 body {
   font-family: sans-serif;
@@ -43,6 +67,14 @@ button {
   border-radius: 8px;
   word-break: break-word;
 }
+  input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
 
 h1 {
   font-size: 28px;
@@ -58,6 +90,13 @@ h2 {
 <body>
 
 <h1>謎解きヒント（上級編）</h1>
+
+<input type="text" id="answer"
+placeholder="解答判定">
+
+<button onclick="checkAnswer()">判定</button>
+
+<p id="result"></p>
 
 <div class="section">
 
