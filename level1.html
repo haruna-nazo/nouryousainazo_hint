@@ -76,15 +76,21 @@ function checkAnswer() {
         "まえばし","マエバシ","前橋",
         "きゅうり","キュウリ","胡瓜",
         "マイク","まいく","mic","mike",
-        "すなお","素直","スナオ"];
+        "すなお","素直","スナオ","はなまる","ハナマル","花丸"];
 
-    if (correctAnswers.includes(answer)) {
-        document.getElementById("result").innerHTML =
-            "〇 正解です！";
-    } else {
-        document.getElementById("result").innerHTML =
-            "× 不正解です…。";
-    }
+if (["はずれ", "ハズレ", "外れ"].includes(answer)) {
+    document.getElementById("result").innerHTML =
+    "とても惜しいですが、その答えはハズレのようです。<br>スタッフにその答えを伝えると、真の答えを知るための更なるヒントがもらえます。";
+}
+else if (correctAnswers.includes(answer)) {
+    document.getElementById("result").innerHTML =
+        "〇 正解です！";
+}
+else {
+    document.getElementById("result").innerHTML =
+        "× 不正解です…。";
+}
+ 
 }
 </script>
   
