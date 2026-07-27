@@ -43,7 +43,15 @@ button {
   border-radius: 8px;
   word-break: break-word;
 }
+.hint-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
 
+.hint-content.open {
+  max-height: 500px;
+}
 h1 {
   font-size: 28px;
   text-align: center;
@@ -136,13 +144,13 @@ else {
     <br><br>
 
     <button onclick="
-      document.getElementById('b-final2').style.display='block';
+      document.getElementById('b-final2').classList.add('open');
       this.style.display='none';
     ">
       さらにヒントを見る
     </button>
 
-    <div id="b-final2" style="display:none; margin-top:8px;">
+    <div id="b-final2" class="hint-content" style="margin-top:8px;">
       <b>ヒント2：</b><br>
       現れた指示を一つずつ行っていきましょう。<br>
       遊び方にも説明がある通り、パネルの右下に書いてあるイラストが「マーク」で、そのイラストが指す名前を並べる必要があるようです。<br>
@@ -151,14 +159,14 @@ else {
       <br><br>
 
       <button onclick="
-        document.getElementById('b-final3').style.display='block';
+        document.getElementById('b-final3').classList.add('open');
         this.style.display='none';
       ">
         さらにヒントを見る
       </button>
     </div>
 
-    <div id="b-final3" style="display:none; margin-top:8px;">
+    <div id="b-final3" class="hint-content" style="margin-top:8px;">
       <b>ヒント3：</b><br>
       ６つの単語を指示通りに並べましたが、不正解のような単語が出てきてしまいました。<br>
       通路の壁にはパネルは６つだけありますが、あなたは今までにもう1枚、パネルを見ているはずです。<br>
@@ -239,14 +247,13 @@ function createQuestions(containerId, prefix, hints, titles) {
 hint.innerHTML =
   "<b>ヒント1：</b>" + hints[i - 1][0] +
   "<br><br>" +
-  "<button onclick=\"document.getElementById('" + prefix + "h2_" + i + "').style.display='block'; this.style.display='none';\">さらにヒントを見る</button>" +
-  "<div id='" + prefix + "h2_" + i + "' style='display:none; margin-top:8px;'>" +
+  "<button onclick=\"document.getElementById('" + prefix + "h2_" + i + "').classList.add('open'); this.style.display='none';\">さらにヒントを見る</button>" +
+  "<div id='" + prefix + "h2_" + i + "' class='hint-content' style='margin-top:8px;'>" +
   "<b>ヒント2：</b>" + hints[i - 1][1] +
   "<br><br>" +
-  "<button onclick=\"document.getElementById('" + prefix + "a_" + i + "').style.display='block'; this.style.display='none';\">答えを確認する</button>" +
-  "<div id='" + prefix + "a_" + i + "' style='display:none; margin-top:8px;'>" +
+  "<button onclick=\"document.getElementById('" + prefix + "a_" + i + "').classList.add('open'); this.style.display='none';\">答えを確認する</button>" +
+  "</div>" +"<div id='" + prefix + "a_" + i + "' class='hint-content' style='margin-top:8px;'>" +
   "<b>答え：</b>" + hints[i - 1][2] +
-  "</div>" +
   "</div>";
     
     container.appendChild(btn);
